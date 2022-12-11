@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/71t+4m5lz0L.jpg" type="Texture" id=1]
+[ext_resource path="res://Scripts/TextureButton.cs" type="Script" id=2]
+[ext_resource path="res://Assets/NicePng_vintage-arrow-png_3021133.png" type="Texture" id=3]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+color = Color( 0.0627451, 0.203922, 0.329412, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 602.5
+margin_right = 1317.5
+margin_bottom = 1080.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer"]
+margin_left = 1206.0
+margin_top = 972.0
+margin_right = 1308.0
+margin_bottom = 1074.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 3 )
+texture_focused = ExtResource( 3 )
+expand = true
+script = ExtResource( 2 )
+
+[connection signal="pressed" from="CanvasLayer/TextureButton" to="CanvasLayer/TextureButton" method="_on_TextureButton_pressed"]

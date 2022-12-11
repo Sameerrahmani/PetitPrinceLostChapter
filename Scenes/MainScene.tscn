@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/caveat-regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/image-removebg-preview.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/DialogueManager.cs" type="Script" id=3]
+[ext_resource path="res://Assets/stickerslibrary082417-01.png" type="Texture" id=4]
+[ext_resource path="res://Assets/NicePng_vintage-arrow-png_3021133.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 33
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.913725, 0.909804, 0.909804, 0 )
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -11.0
+margin_top = -9.0
+margin_right = 1937.0
+margin_bottom = 1090.0
+texture = ExtResource( 4 )
+expand = true
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 1104, 387 )
+scale = Vector2( 0.76738, 0.76738 )
+texture = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchor_bottom = 1.0
+margin_left = 125.0
+margin_top = 87.0
+margin_right = 936.0
+margin_bottom = -140.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+text = "asdasdasdsa"
+scroll_active = false
+script = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="NextButton" type="TextureButton" parent="CanvasLayer"]
+margin_left = 1737.0
+margin_top = 960.0
+margin_right = 1820.0
+margin_bottom = 1023.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 5 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="BackButton" type="TextureButton" parent="CanvasLayer"]
+margin_left = 104.0
+margin_top = 960.0
+margin_right = 187.0
+margin_bottom = 1023.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 5 )
+texture_focused = ExtResource( 5 )
+expand = true
+flip_h = true
+
+[connection signal="pressed" from="CanvasLayer/NextButton" to="CanvasLayer/RichTextLabel" method="_on_NextButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/BackButton" to="CanvasLayer/RichTextLabel" method="_on_BackButton_pressed"]
